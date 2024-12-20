@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+}
+
+.container h1 {
+  text-align: left;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 60px;
+}
+
+.container h2 {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 50px;
+}
+.stroka {
+  width: 100%;
+  margin-top: 30px;
+  overflow: hidden;
+  background-color: #5f58c9;
+  border-radius: 30px;
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  width: 100%;
+}
+
+.marqueeInner {
+  display: flex;
+  animation: marquee 10s linear infinite;
+}
+
+.img {
+  width: 200px;
+  padding: 20px;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.button {
+  font-family: "Inria Sans", sans-serif;
+  margin-top: 50px;
+  border: 4px solid #5f58c9;
+  border-radius: 30px;
+  width: 500px;
+  height: 80px;
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 28px;
+  color: #5f58c9;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #5f58c9;
+  color: #fff;
+}
