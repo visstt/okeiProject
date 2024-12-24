@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Allerta&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-size: 50px;
+  text-align: center;
+  padding: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: nowrap;
+  padding: 30px;
+  padding-left: 0;
+  padding-bottom: 0;
+  justify-content: stretch;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #7a73e7;
+  border-radius: 30px 30px 0 0;
+  color: #fff;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+.first h2 {
+  font-size: 70px;
+  font-family: "Allerta", sans-serif;
+  font-weight: 400;
+}
+.first p {
+  font-size: 30px;
+  font-family: "Allerta", sans-serif;
+  max-width: 400px;
+}
+.number {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+.number h2 {
+  font-size: 70px;
+  font-family: "Allerta", sans-serif;
+  font-weight: 400;
+}
+.number p {
+  font-size: 30px;
+  font-family: "Allerta", sans-serif;
+  max-width: 400px;
+}
+
+.directions {
+  display: flex;
+  flex-direction: column;
+  background-color: #7a73e7;
+}
+.mainBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: #fff;
+  margin: 30px;
+  padding: 10px;
+  padding-top: 20px;
+  border-radius: 20px;
+
+  width: 30%;
+}
+
+.block img {
+  width: 350px;
+  height: 300px;
+}
+
+.blue {
+  background-color: #407bff;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+.pink {
+  background-color: #eb5596;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+.green {
+  background-color: #5efa7a;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  width: 300px;
+  height: 70px;
+  padding: 20px;
+  background-color: #7a73e7;
+  color: #fff;
+  border: solid 3px #fff;
+  border-radius: 20px;
+  font-family: "Inria Sans", initial;
+  font-size: 30px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #7a73e7;
+}

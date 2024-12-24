@@ -1,0 +1,112 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  padding-top: 100px;
+}
+.container {
+  background-color: #7a73e7;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  color: #fff;
+}
+h1 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  outline: none;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #7a73e7;
+  color: white;
+  font-size: 18px;
+}
+textarea {
+  height: 250px;
+  resize: none;
+  background-color: white;
+  color: black;
+  border: 2px solid #fff;
+  font-size: 18px;
+}
+.fileUpload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.fileUpload i {
+  margin-left: 10px;
+}
+input[type="file"] {
+  display: none;
+}
+.fileUpload label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submiBtn {
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  align-self: center;
+  margin: 0 auto;
+  display: block;
+}
+button.submiBtn {
+  margin-top: 30px;
+}
+.column {
+  width: 48%;
+}
+.fullWidth {
+  width: 100%;
+}
+select {
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: black;
+  border: 2px solid #fff;
+  font-size: 20px;
+}

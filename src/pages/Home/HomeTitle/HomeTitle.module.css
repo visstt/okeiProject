@@ -2,7 +2,9 @@
   display: flex;
   width: 100%;
 }
-
+.typed {
+  text-align: left;
+}
 .block1 {
   width: 90%;
   background-color: #7a73e7;
