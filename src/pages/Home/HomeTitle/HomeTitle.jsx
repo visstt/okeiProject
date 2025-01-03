@@ -11,9 +11,9 @@ export default function HomeTitle() {
   useEffect(() => {
     let index = 0;
     let isDeleting = false;
-    const typingInterval = 100; // Интервал для печати
-    const deletingInterval = 100; // Интервал для стирания
-    const delayBeforeDeleting = 2000; // Задержка перед началом стирания
+    const typingInterval = 100;
+    const deletingInterval = 100;
+    const delayBeforeDeleting = 2000;
 
     const interval = setInterval(
       () => {
@@ -22,9 +22,8 @@ export default function HomeTitle() {
             setText((prev) => prev + fullText.charAt(index));
             index++;
           } else {
-            // Задержка перед началом стирания
             setTimeout(() => {
-              isDeleting = true; // Начинаем стирать текст
+              isDeleting = true;
             }, delayBeforeDeleting);
           }
         } else {
@@ -32,7 +31,7 @@ export default function HomeTitle() {
             setText((prev) => prev.slice(0, -1));
             index--;
           } else {
-            isDeleting = false; // Начинаем снова печатать текст
+            isDeleting = false;
           }
         }
       },

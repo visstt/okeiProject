@@ -1,0 +1,75 @@
+.wrapperButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.blueButton {
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: solid 3px #8a9fee;
+  border-radius: 20px;
+  color: #8a9fee;
+  font-size: 24px;
+}
+.pinkButton {
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  border: solid 3px #f4b7ec;
+  border-radius: 20px;
+  color: #f4b7ec;
+  font-size: 24px;
+}
+
+.pinkButton:hover {
+  transition: 0.5s ease;
+  background-color: #f4b7ec;
+  color: #fff;
+}
+.blueButton:hover {
+  transition: 0.5s ease;
+  background-color: #8a9fee;
+  color: #fff;
+}
+
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+
+.highlight {
+  margin-left: 50px;
+  width: 230px;
+  position: relative;
+  font-size: 100px;
+  text-align: left;
+  padding: 30px;
+  font-weight: 400;
+}
+.highlight::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  top: 100px;
+  background-color: #4285f4;
+  z-index: -1;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}

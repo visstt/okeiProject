@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Allerta&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 .container {
   display: flex;
   flex-direction: column;
@@ -31,27 +32,32 @@
   padding-left: 30px;
   padding-bottom: 30px;
 }
+
 .first h2 {
   font-size: 70px;
   font-family: "Allerta", sans-serif;
   font-weight: 400;
 }
+
 .first p {
   font-size: 30px;
   font-family: "Allerta", sans-serif;
   max-width: 400px;
 }
+
 .number {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-bottom: 30px;
 }
+
 .number h2 {
   font-size: 70px;
   font-family: "Allerta", sans-serif;
   font-weight: 400;
 }
+
 .number p {
   font-size: 30px;
   font-family: "Allerta", sans-serif;
@@ -63,6 +69,7 @@
   flex-direction: column;
   background-color: #7a73e7;
 }
+
 .mainBlock {
   display: flex;
   flex-direction: row;
@@ -81,8 +88,54 @@
   padding: 10px;
   padding-top: 20px;
   border-radius: 20px;
+  position: relative;
+  width: 450px;
+  height: 400px;
+  perspective: 1000px;
+}
 
-  width: 30%;
+.title {
+  background-color: #7a73e7;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.card {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s; /* Плавный переход для переворота */
+  transform-style: preserve-3d; /* Сохранение 3D для дочерних элементов */
+}
+
+.card.flipped {
+  transform: rotateY(180deg); /* Переворот карточки */
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.back {
+  transform: rotateY(180deg); /* Повернуть заднюю сторону */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* Фон для задней стороны */
+  border-radius: 20px; /* Соответствие радиусу передней стороны */
 }
 
 .block img {
@@ -96,12 +149,14 @@
   border-radius: 10px;
   color: #fff;
 }
+
 .pink {
   background-color: #eb5596;
   padding: 10px;
   border-radius: 10px;
   color: #fff;
 }
+
 .green {
   background-color: #5efa7a;
   padding: 10px;
@@ -121,8 +176,9 @@
   height: 70px;
   padding: 20px;
   background-color: #7a73e7;
+
   color: #fff;
-  border: solid 3px #fff;
+  border: solid 3px #7a73e7;
   border-radius: 20px;
   font-family: "Inria Sans", initial;
   font-size: 30px;

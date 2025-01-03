@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./HomeProjectInfo.module.css";
 import bluePhoto from "../../../../public/bluePhoto.png";
 import greenPhoto from "../../../../public/greenPhoto.png";
 import pinkPhoto from "../../../../public/pinkPhoto.png";
+import { Link } from "react-router-dom";
 
 export default function HomeProjectInfo() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
+  const handleCardClick = (index) => {
+    setFlippedIndex(flippedIndex === index ? null : index);
+  };
+
+  const projects = [
+    {
+      title: "Разработка веб-сайта",
+      image: bluePhoto,
+      techStack: "HTML, CSS, JavaScript, React",
+    },
+    {
+      title: "Графический дизайн",
+      image: greenPhoto,
+      techStack: "Photoshop, Illustrator",
+    },
+    {
+      title: "Фото/Видео съёмка",
+      image: pinkPhoto,
+      techStack: "Canon, Adobe Premiere",
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <h1>Готовы воплотить свои идеи в жизнь?</h1>
@@ -28,21 +53,32 @@ export default function HomeProjectInfo() {
       </div>
       <div className={styles.directions}>
         <div className={styles.mainBlock}>
-          <div className={styles.block}>
-            <h2 className={styles.blue}>Разработка веб-сайта</h2>
-            <img src={bluePhoto} alt={styles.bluePhoto} />
-          </div>
-          <div className={styles.block}>
-            <h2 className={styles.green}>Графический дизайн</h2>
-            <img src={greenPhoto} alt={styles.greenPhoto} />
-          </div>
-          <div className={styles.block}>
-            <h2 className={styles.pink}>Фото/Видео съёмка</h2>
-            <img src={pinkPhoto} alt={styles.pinkPhoto} />
-          </div>
+          {projects.map((project, index) => (
+            <div
+              className={styles.block}
+              key={index}
+              onClick={() => handleCardClick(index)}
+            >
+              <div
+                className={`${styles.card} ${
+                  flippedIndex === index ? styles.flipped : ""
+                }`}
+              >
+                <div className={styles.front}>
+                  <h2 className={styles.title}>{project.title}</h2>
+                  <img src={project.image} alt={project.title} />
+                </div>
+                <div className={styles.back}>
+                  <p>Стек технологий: {project.techStack}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <button className={styles.button}>Наши проекты</button>
       </div>
+      <Link to="/projects">
+        <button className={styles.button}>Наши проекты</button>
+      </Link>
     </div>
   );
 }
