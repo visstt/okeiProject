@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function HomeForm() {
   const [firstSelect, setFirstSelect] = useState("");
   const [secondSelectOptions, setSecondSelectOptions] = useState([]);
+  const [fileName, setFileName] = useState(""); // Состояние для имени файла
   const [formData, setFormData] = useState({
     organizationName: "",
     contactPerson: "",
@@ -53,9 +54,11 @@ export default function HomeForm() {
   };
 
   const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setFileName(file ? file.name : ""); // Обновляем имя файла
     setFormData((prevData) => ({
       ...prevData,
-      file: event.target.files[0],
+      file: file,
     }));
   };
 
@@ -184,9 +187,14 @@ export default function HomeForm() {
                 id="file-upload"
                 name="file-upload"
                 onChange={handleFileChange}
+                style={{ display: "none" }} // Скрываем стандартный инпут
               />
-              <label htmlFor="file-upload" className={styles.fileUpload}>
-                <span>Добавить техническое задание</span>
+              <label
+                htmlFor="file-upload"
+                className={styles.fileUpload}
+                style={{ cursor: "pointer" }} // Курсор для кнопки
+              >
+                <span>{fileName || "Добавить техническое задание"}</span>
                 <i className="fas fa-download"></i>
               </label>
             </div>

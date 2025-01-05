@@ -16,7 +16,7 @@ export default function HomeProjectInfo() {
     setFlippedIndex(index);
   };
 
-  const handleMouseLeave = (index) => {
+  const handleMouseLeave = () => {
     setFlippedIndex(null);
   };
 
@@ -56,7 +56,7 @@ export default function HomeProjectInfo() {
         </div>
         <div className={styles.number}>
           <h2>04</h2>
-          <p>Получите крутой готовый проект, выполненный нашими студентами</p>
+          <p>Получите крутой проект, выполненный студентами</p>
         </div>
       </div>
       <div className={styles.directions}>
@@ -66,7 +66,7 @@ export default function HomeProjectInfo() {
               className={styles.block}
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
+              onMouseLeave={handleMouseLeave}
             >
               <div
                 className={`${styles.card} ${
@@ -80,8 +80,8 @@ export default function HomeProjectInfo() {
                 <div className={styles.back}>
                   <p className={styles.stackTitle}>Стек технологий:</p>
                   <div className={styles.stackList}>
-                    {project.techStack.split(", ").map((tech, index) => (
-                      <div key={index} className={styles.stackItem}>
+                    {project.techStack.split(", ").map((tech, idx) => (
+                      <div key={idx} className={styles.stackItem}>
                         {tech}
                       </div>
                     ))}

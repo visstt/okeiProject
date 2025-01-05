@@ -3,6 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .container h1 {
@@ -37,6 +38,8 @@
   font-size: 70px;
   font-family: "Allerta", sans-serif;
   font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .first p {
@@ -56,6 +59,8 @@
   font-size: 70px;
   font-family: "Allerta", sans-serif;
   font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .number p {
@@ -108,12 +113,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s; /* Плавный переход для переворота */
-  transform-style: preserve-3d; /* Сохранение 3D для дочерних элементов */
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
 .card.flipped {
-  transform: rotateY(180deg); /* Переворот карточки */
+  transform: rotateY(180deg);
 }
 
 .front,
@@ -130,12 +135,12 @@
 }
 
 .back {
-  transform: rotateY(180deg); /* Повернуть заднюю сторону */
+  transform: rotateY(180deg);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff; /* Фон для задней стороны */
-  border-radius: 20px; /* Соответствие радиусу передней стороны */
+  background-color: #fff;
+  border-radius: 20px;
 }
 .stackTitle {
   font-size: 18px;
@@ -306,72 +311,17 @@
     padding-bottom: 0;
     justify-content: stretch;
   }
-  .first {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #7a73e7;
-    border-radius: 30px 30px 0 0;
-    color: #fff;
-  }
-  .first h2 {
-    font-size: 70px;
-    font-family: "Allerta", sans-serif;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-  }
-
-  .first p {
-    font-size: 25px;
-    font-family: "Allerta", sans-serif;
-    max-width: 400px;
-    margin: 0;
-  }
   .number {
     display: none;
   }
-
-  .number h2 {
-    font-size: 70px;
-    font-family: "Allerta", sans-serif;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
-  }
-
-  .number p {
-    font-size: 25px;
-    font-family: "Allerta", sans-serif;
-    max-width: 400px;
-  }
-  .block img {
-    width: 250px;
-    height: 200px;
-  }
-  .title {
-    font-size: 22px;
-    background-color: #7a73e7;
-    padding: 7px;
-    margin: 10px;
-    border-radius: 10px;
-    color: #fff;
-    text-align: center;
+  .mainBlock {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-left: 350px;
   }
   .block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    background-color: #fff;
-    margin: 30px;
-    padding: 10px;
-    padding-top: 20px;
-    border-radius: 20px;
-    position: relative;
-    width: 450px;
-    height: 320px;
-    perspective: 1000px;
+    width: 300px;
+    margin-right: 20px;
+    flex: 0 0 auto;
   }
 }
