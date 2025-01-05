@@ -12,6 +12,14 @@ export default function HomeProjectInfo() {
     setFlippedIndex(flippedIndex === index ? null : index);
   };
 
+  const handleMouseEnter = (index) => {
+    setFlippedIndex(index);
+  };
+
+  const handleMouseLeave = (index) => {
+    setFlippedIndex(null);
+  };
+
   const projects = [
     {
       title: "Разработка веб-сайта",
@@ -57,7 +65,8 @@ export default function HomeProjectInfo() {
             <div
               className={styles.block}
               key={index}
-              onClick={() => handleCardClick(index)}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
             >
               <div
                 className={`${styles.card} ${
@@ -69,15 +78,22 @@ export default function HomeProjectInfo() {
                   <img src={project.image} alt={project.title} />
                 </div>
                 <div className={styles.back}>
-                  <p>Стек технологий: {project.techStack}</p>
+                  <p className={styles.stackTitle}>Стек технологий:</p>
+                  <div className={styles.stackList}>
+                    {project.techStack.split(", ").map((tech, index) => (
+                      <div key={index} className={styles.stackItem}>
+                        {tech}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Link to="/projects">
-        <button className={styles.button}>Наши проекты</button>
+      <Link to="/projects" className={styles.button}>
+        <p>Наши проекты</p>
       </Link>
     </div>
   );

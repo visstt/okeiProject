@@ -1,6 +1,41 @@
 import React from "react";
 import styles from "./HomeDescription.module.css";
-import odnokl from "../../../../public/odnokl.png";
+import logoOkei from "../../../../public/logoOkei.png";
+
+// Массив с объектами, содержащими информацию о картинках
+const images = [
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+  { src: logoOkei, alt: "logoOkei" },
+
+  // Добавьте другие картинки здесь
+];
+
+const MarqueeImage = ({ image, delay }) => {
+  return (
+    <div
+      style={{
+        width: "200px",
+        padding: "20px",
+        display: "inline-block",
+        animation: "marquee 10s linear infinite",
+        animationDelay: `${delay}s`,
+      }}
+    >
+      <img src={image.src} alt={image.alt} className={styles.img} />
+    </div>
+  );
+};
 
 export default function HomeDescription() {
   return (
@@ -14,17 +49,17 @@ export default function HomeDescription() {
       <div className={styles.stroka}>
         <div className={styles.marquee}>
           <div className={styles.marqueeInner}>
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            {/* Повторяем изображения для бесконечного эффекта */}
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
-            <img src={odnokl} alt="odnokl" className={styles.img} />
+            {images.map((image, index) => (
+              <MarqueeImage key={index} image={image} delay={index * 2} />
+            ))}
+            {/* Дублируем картинки в конце строки */}
+            {images.map((image, index) => (
+              <MarqueeImage
+                key={index + images.length}
+                image={image}
+                delay={index * 2}
+              />
+            ))}
           </div>
         </div>
       </div>
