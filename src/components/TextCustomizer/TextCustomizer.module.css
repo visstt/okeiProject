@@ -1,7 +1,36 @@
 .highlightBlock {
-  display: inline-block; /* Ширина адаптируется к содержимому */
+  display: block; /* Каждый блок на своей строке */
   background-color: #e6f7ff; /* Нежно-голубой фон */
-  padding: 10px; /* Отступы */
+  padding: 10px; /* Внутренние отступы */
   border-radius: 5px; /* Скруглённые углы */
   margin: 10px 0; /* Отступы сверху и снизу */
+  width: fit-content; /* Ширина адаптируется к содержимому */
+  max-width: 100%; /* Ограничение ширины */
+  word-wrap: break-word; /* Перенос длинных слов */
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.toolbar button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toolbar button:hover {
+  background-color: #e0e0e0;
+}
+
+.highlightBlock {
+  background-color: #e7f5ff;
+  padding: 10px;
+  border-left: 4px solid #007bff;
+  margin: 10px 0;
 }
