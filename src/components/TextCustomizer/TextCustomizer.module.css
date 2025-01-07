@@ -1,0 +1,7 @@
+.highlightBlock {
+  display: inline-block; /* Ширина адаптируется к содержимому */
+  background-color: #e6f7ff; /* Нежно-голубой фон */
+  padding: 10px; /* Отступы */
+  border-radius: 5px; /* Скруглённые углы */
+  margin: 10px 0; /* Отступы сверху и снизу */
+}

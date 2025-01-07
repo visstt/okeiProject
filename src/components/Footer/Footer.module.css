@@ -8,3 +8,9 @@
   height: 50px;
   margin-top: 20px;
 }
+
+@media (max-width: 1200px) {
+  .footer {
+    text-align: center;
+  }
+}
