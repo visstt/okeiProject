@@ -325,3 +325,52 @@
     flex: 0 0 auto;
   }
 }
+
+@media (max-width: 500px) {
+  .container h1 {
+    font-size: 30px;
+  }
+  .wrapper {
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-wrap: nowrap;
+    padding: 30px;
+    padding-left: 0;
+    padding-bottom: 0;
+    justify-content: stretch;
+  }
+  .first {
+    width: 200px;
+  }
+  .first h2 {
+    font-size: 50px;
+    margin-top: 30px;
+  }
+  .first p {
+    font-size: 20px;
+  }
+  .mainBlock {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-left: 350px;
+  }
+  .block:first-child {
+    margin-left: 350px; /* Отступ слева для первой карточки */
+  }
+  .block {
+    width: 300px;
+    margin-right: 20px;
+    flex: 0 0 auto;
+  }
+  .btnWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+  }
+  .button {
+    margin-left: 15px;
+    padding: 10px;
+  }
+}

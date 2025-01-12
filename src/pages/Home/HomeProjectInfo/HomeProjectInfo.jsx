@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "./HomeProjectInfo.module.css";
 import bluePhoto from "../../../../public/bluePhoto.png";
 import greenPhoto from "../../../../public/greenPhoto.png";
@@ -7,7 +8,23 @@ import { Link } from "react-router-dom";
 
 export default function HomeProjectInfo() {
   const [flippedIndex, setFlippedIndex] = useState(null);
+  const [stacks, setStacks] = useState([]);
 
+  // Загрузка данных стека технологий с API
+  useEffect(() => {
+    const fetchStacks = async () => {
+      try {
+        const response = await axios.get("http://localhost:4200/api/stack/all");
+        setStacks(response.data);
+      } catch (error) {
+        console.error("Ошибка при загрузке стека технологий:", error);
+      }
+    };
+
+    fetchStacks();
+  }, []);
+
+  // Обработчики для анимации переворота карточки
   const handleCardClick = (index) => {
     setFlippedIndex(flippedIndex === index ? null : index);
   };
@@ -20,21 +37,28 @@ export default function HomeProjectInfo() {
     setFlippedIndex(null);
   };
 
+  // Массив проектов с данными из API
   const projects = [
     {
       title: "Разработка веб-сайта",
       image: bluePhoto,
-      techStack: "HTML, CSS, JavaScript, React",
+      techStack:
+        stacks.find((stack) => stack.areaName === "Разработка веб-сайта")
+          ?.stack || "",
     },
     {
       title: "Графический дизайн",
       image: greenPhoto,
-      techStack: "Photoshop, Illustrator",
+      techStack:
+        stacks.find((stack) => stack.areaName === "Графический дизайн")
+          ?.stack || "",
     },
     {
       title: "Фото/Видео съёмка",
       image: pinkPhoto,
-      techStack: "Canon, Adobe Premiere",
+      techStack:
+        stacks.find((stack) => stack.areaName === "Фото/Видео съёмка")?.stack ||
+        "",
     },
   ];
 
@@ -67,6 +91,7 @@ export default function HomeProjectInfo() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
+              onClick={() => handleCardClick(index)}
             >
               <div
                 className={`${styles.card} ${
@@ -80,7 +105,7 @@ export default function HomeProjectInfo() {
                 <div className={styles.back}>
                   <p className={styles.stackTitle}>Стек технологий:</p>
                   <div className={styles.stackList}>
-                    {project.techStack.split(", ").map((tech, idx) => (
+                    {project.techStack.split(";").map((tech, idx) => (
                       <div key={idx} className={styles.stackItem}>
                         {tech}
                       </div>
@@ -92,9 +117,11 @@ export default function HomeProjectInfo() {
           ))}
         </div>
       </div>
-      <Link to="/projects" className={styles.button}>
-        <p>Наши проекты</p>
-      </Link>
+      <div className={styles.btnWrapper}>
+        <Link to="/projects" className={styles.button}>
+          <p>Наши проекты</p>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -110,3 +110,58 @@ select {
   border: 2px solid #fff;
   font-size: 20px;
 }
+
+@media (max-width: 500px) {
+  .wrapper {
+    padding: 15px;
+    padding-top: 50px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  .fileUpload {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .fileUpload i {
+    margin-left: 5px;
+  }
+
+  select {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  .submiBtn {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

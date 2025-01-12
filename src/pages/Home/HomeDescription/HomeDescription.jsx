@@ -1,43 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HomeDescription.module.css";
-import logoOkei from "../../../../public/logoOkei.png";
 
-// Массив с объектами, содержащими информацию о картинках
-const images = [
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
-  { src: logoOkei, alt: "logoOkei" },
+const HomeDescription = () => {
+  const [logos, setLogos] = useState([]);
 
-  // Добавьте другие картинки здесь
-];
+  useEffect(() => {
+    const fetchLogos = async () => {
+      try {
+        const response = await fetch("http://localhost:4200/api/logo/all");
+        const data = await response.json();
+        setLogos(data);
+      } catch (error) {
+        console.error("Ошибка при загрузке логотипов:", error);
+      }
+    };
 
-const MarqueeImage = ({ image, delay }) => {
-  return (
-    <div
-      style={{
-        width: "200px",
-        padding: "20px",
-        display: "inline-block",
-        animation: "marquee 10s linear infinite",
-        animationDelay: `${delay}s`,
-      }}
-    >
-      <img src={image.src} alt={image.alt} className={styles.img} />
-    </div>
-  );
-};
+    fetchLogos();
+  }, []);
 
-export default function HomeDescription() {
+  const images = logos.map((logo) => ({
+    src: `http://localhost:4200/uploads/${logo.logoPath}`,
+    alt: `logo-${logo.logoId}`,
+  }));
+
+  // Дублируем массив images
+  const duplicatedImages = [
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+    ...images,
+  ];
+
+  const MarqueeImage = ({ image, delay }) => {
+    return (
+      <div
+        style={{
+          width: "200px",
+          padding: "20px",
+          display: "inline-block",
+          animation: "marquee 120s linear infinite",
+          animationDelay: `${delay * 0.1}s`,
+        }}
+      >
+        <img src={image.src} alt={image.alt} className={styles.img} />
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
       <h1>
@@ -49,16 +62,8 @@ export default function HomeDescription() {
       <div className={styles.stroka}>
         <div className={styles.marquee}>
           <div className={styles.marqueeInner}>
-            {images.map((image, index) => (
-              <MarqueeImage key={index} image={image} delay={index * 2} />
-            ))}
-            {/* Дублируем картинки в конце строки */}
-            {images.map((image, index) => (
-              <MarqueeImage
-                key={index + images.length}
-                image={image}
-                delay={index * 2}
-              />
+            {duplicatedImages.map((image, index) => (
+              <MarqueeImage key={index} image={image} delay={index * 0.1} />
             ))}
           </div>
         </div>
@@ -67,4 +72,6 @@ export default function HomeDescription() {
       <button className={styles.button}>Шаг на встречу успеху</button>
     </div>
   );
-}
+};
+
+export default HomeDescription;

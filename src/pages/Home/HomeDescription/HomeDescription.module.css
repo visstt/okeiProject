@@ -88,3 +88,27 @@
     margin-top: 50px;
   }
 }
+@media (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+  .container h1 {
+    text-align: left;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 40px;
+  }
+  .container h2 {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 50px;
+  }
+  .button {
+    width: 350px;
+  }
+  .img {
+    width: 200px;
+    padding: 0px;
+  }
+}

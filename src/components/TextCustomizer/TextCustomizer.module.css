@@ -34,3 +34,7 @@
   border-left: 4px solid #007bff;
   margin: 10px 0;
 }
+
+.custom-font-size {
+  display: inline-block;
+}

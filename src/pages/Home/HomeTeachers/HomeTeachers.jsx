@@ -8,13 +8,6 @@ export default function HomeTeachers() {
       <h1>Команда руководителей проектной деятельности</h1>
       <div className={styles.cards}>
         <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
       </div>
     </div>
   );
