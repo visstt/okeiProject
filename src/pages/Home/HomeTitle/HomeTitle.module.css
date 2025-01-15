@@ -51,7 +51,7 @@
 
 .block2 img {
   width: 350px;
-  height: 280px;
+  height: 230px;
 }
 .block2 {
   width: 380px;
@@ -64,7 +64,7 @@
   border-radius: 25px;
 }
 
-.block3 img {
+.block3 video {
   width: 350px;
   height: 280px;
 }
@@ -92,7 +92,7 @@
     width: 250px;
     height: 180px;
   }
-  .block3 img {
+  .block3 video {
     width: 250px;
     height: 180px;
   }
@@ -145,7 +145,7 @@
     width: 250px;
     height: 200px;
   }
-  .block3 img {
+  .block3 video {
     width: 250px;
     height: 200px;
   }
@@ -184,7 +184,7 @@
     width: 150px;
     height: 120px;
   }
-  .block3 img {
+  .block3 video {
     width: 150px;
     height: 120px;
   }
@@ -209,7 +209,7 @@
     width: 150px;
     height: 170px;
   }
-  .block3 img {
+  .block3 video {
     width: 140px;
     height: 120px;
   }

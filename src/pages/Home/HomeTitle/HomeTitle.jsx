@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HomeTitle.module.css";
-import logoOksei from "../../../../public/logoOksei.png";
+import logoOksei from "../../../../public/logoOkei.png";
 import message from "../../../../public/message.png";
+import messageVideo from "../../../../public/messageVideo.mp4";
 
 export default function HomeTitle() {
   const [text, setText] = useState("");
@@ -59,7 +60,7 @@ export default function HomeTitle() {
           <img src={logoOksei} alt="logoOksei" />
         </div>
         <div className={styles.block3}>
-          <img src={message} alt="message" />
+          <video src={messageVideo} alt="messageVideo" autoPlay loop muted />
         </div>
       </div>
     </div>
