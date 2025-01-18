@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import styles from "./HomeForm.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import download from "../../../../public/download.png";
 
 export default function HomeForm() {
-  const [firstSelect, setFirstSelect] = useState("");
-  const [secondSelectOptions, setSecondSelectOptions] = useState([]);
   const [fileName, setFileName] = useState(""); // Состояние для имени файла
   const [formData, setFormData] = useState({
     organizationName: "",
@@ -97,114 +96,89 @@ export default function HomeForm() {
       toast.error("Ошибка при отправке данных.");
     }
   };
-
   return (
     <div className={styles.wrapper}>
       <ToastContainer />
       <div className={styles.container}>
-        <h1>Ваша заявка — первый шаг к нашей совместной работе!</h1>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.column}>
-            <div className={styles.fullWidth}>
-              <label htmlFor="organization">Наименование организации</label>
-              <input
-                type="text"
-                id="organization"
-                name="organizationName"
-                onChange={handleChange}
-              />
+        <div className={styles.inner}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.column}>
+              <div className={styles.fullWidth}>
+                <input
+                  type="text"
+                  id="organization"
+                  name="organizationName"
+                  onChange={handleChange}
+                  placeholder="Наименование организации"
+                />
+              </div>
+              <div className={styles.fullWidth}>
+                <input
+                  type="text"
+                  id="contact-person"
+                  name="contactPerson"
+                  onChange={handleChange}
+                  placeholder="Контактное лицо"
+                />
+              </div>
+              <div className={styles.fullWidth}>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phoneNumber"
+                  onChange={handleChange}
+                  placeholder="Контактный номер телефона"
+                />
+              </div>
+              <div className={styles.fullWidth}>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={handleChange}
+                  placeholder="Электронная почта"
+                />
+              </div>
+              <div className={styles.fullWidth}>
+                <input
+                  type="text"
+                  id="deadline"
+                  name="deadline"
+                  onChange={handleChange}
+                  placeholder="Сроки выполнения"
+                />
+              </div>
+
+              <div className={styles.fullWidth}>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file-upload"
+                  onChange={handleFileChange}
+                  style={{ display: "none" }} // Скрываем стандартный инпут
+                />
+                <label
+                  htmlFor="file-upload"
+                  className={styles.fileUpload}
+                  style={{ cursor: "pointer" }} // Курсор для кнопки
+                >
+                  <span>{fileName || "Добавить техническое задание"}</span>
+                  <img src={download} alt="download" />
+                </label>
+              </div>
             </div>
-            <div className={styles.fullWidth}>
-              <label htmlFor="contact-person">Контактное лицо</label>
-              <input
-                type="text"
-                id="contact-person"
-                name="contactPerson"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.fullWidth}>
-              <label htmlFor="phone">Контактный номер телефона</label>
-              <input
-                type="text"
-                id="phone"
-                name="phoneNumber"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.fullWidth}>
-              <label htmlFor="email">Электронная почта</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.fullWidth}>
-              <label htmlFor="deadline">Сроки выполнения</label>
-              <input
-                type="text"
-                id="deadline"
-                name="deadline"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.fullWidth}>
-              <select
-                name="firstCategory"
-                onChange={handleFirstSelectChange}
-                value={firstSelect}
-              >
-                <option value=""></option>
-                <option value="Креатив">Креатив</option>
-                <option value="Программирование">Программирование</option>
-              </select>
-            </div>
-            <div className={styles.fullWidth}>
-              <select name="secondCategory" onChange={handleChange}>
-                <option value=""></option>
-                {secondSelectOptions.map((option, index) => (
-                  <option key={index} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className={styles.column}>
-            <div className={styles.fullWidth}>
-              <label htmlFor="description">Краткое описание проекта</label>
-              <textarea
-                id="description"
-                name="description"
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className={styles.fullWidth}>
-              <input
-                type="file"
-                id="file-upload"
-                name="file-upload"
-                onChange={handleFileChange}
-                style={{ display: "none" }} // Скрываем стандартный инпут
-              />
-              <label
-                htmlFor="file-upload"
-                className={styles.fileUpload}
-                style={{ cursor: "pointer" }} // Курсор для кнопки
-              >
-                <span>{fileName || "Добавить техническое задание"}</span>
-                <i className="fas fa-download"></i>
-              </label>
-            </div>
-          </div>
-          <div className={styles.fullWidth}>
+            {/* <div className={styles.fullWidth}>
+
+          </div> */}
+          </form>
+          <div className={styles.text}>
+            <h1>Ваша заявка</h1>
+            <h2>— первый шаг к нашей совместной работе!</h2>
             <button type="submit" className={styles.submiBtn}>
               Отправить
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

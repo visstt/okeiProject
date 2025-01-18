@@ -27,12 +27,18 @@ export default function Card() {
     <div className={styles.cards}>
       {teachers.map((teacher) => (
         <div key={teacher.teacherId} className={styles.card}>
-          <img
-            className={styles.avatar}
-            src={`http://localhost:4200/uploads/${teacher.photoPath}`}
-            alt={teacher.fullName}
-          />
-          <h2>{teacher.fullName}</h2>
+          <div className={styles.toast}>
+            <h4>Программирование</h4>
+          </div>
+          <div>
+            <img
+              className={styles.avatar}
+              src={`http://localhost:4200/uploads/${teacher.photoPath}`}
+              alt={teacher.fullName}
+            />
+          </div>
+
+          <h2>{teacher.fullName.split(" ").slice(0, 2).join(" ")}</h2>
           <h3>{teacher.description}</h3>
         </div>
       ))}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HomeDescription.module.css";
+import girl from "../../../../public/girl.png";
+import { Link } from "react-router-dom";
 
 const HomeDescription = () => {
   const [logos, setLogos] = useState([]);
@@ -53,10 +55,14 @@ const HomeDescription = () => {
 
   return (
     <div className={styles.container}>
-      <h1>
-        ОКЭИ - это мир креативных проектов. От дизайна до программирования — мы
-        создаем все, что вам нужно
-      </h1>
+      <div className={styles.wrapper}>
+        <img src={girl} alt="girl" />
+        <h1>
+          ОКЭИ - это мир креативных проектов. От дизайна до программирования —
+          мы создаем все, что вам нужно
+        </h1>
+      </div>
+
       <h2>Наши партнеры</h2>
 
       <div className={styles.stroka}>
@@ -69,7 +75,9 @@ const HomeDescription = () => {
         </div>
       </div>
 
-      <button className={styles.button}>Шаг на встречу успеху</button>
+      <button className={styles.button}>
+        <h3>Перейти к заявке</h3>
+      </button>
     </div>
   );
 };

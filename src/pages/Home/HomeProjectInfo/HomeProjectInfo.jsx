@@ -68,8 +68,9 @@ export default function HomeProjectInfo() {
       <div className={styles.wrapper}>
         <div className={styles.first}>
           <h2>01</h2>
-          <p>Выберите направление для реализации вашего проекта</p>
+          <p>Выберите направление вашего проекта</p>
         </div>
+
         <div className={styles.number}>
           <h2>02</h2>
           <p>Оставьте заявку с информацией о вашей идее</p>
@@ -117,11 +118,11 @@ export default function HomeProjectInfo() {
           ))}
         </div>
       </div>
-      <div className={styles.btnWrapper}>
+      {/* <div className={styles.btnWrapper}>
         <Link to="/projects" className={styles.button}>
           <p>Наши проекты</p>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

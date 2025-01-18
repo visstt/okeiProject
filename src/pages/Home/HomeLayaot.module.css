@@ -1,18 +1,3 @@
-.backgroundPink {
-  background-image: url(../../../public/backgroundPink.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.backgroundBlue {
-  background-image: url(../../../public/backgroundBlue.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.backgroundCoral {
-  background-image: url(../../../public/backgroundCoral.png);
-  background-repeat: no-repeat;
-  background-size: contain;
+.container {
+  background-color: #edeeff;
 }

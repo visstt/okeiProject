@@ -10,20 +10,16 @@ import Footer from "../../components/Footer/Footer";
 
 export default function HomeLayaot() {
   return (
-    <div className={styles.container}>
-      <div className={styles.backgroundPink}>
+    <>
+      <div className={styles.container}>
         <HomeTitle />
         <HomeDescription />
-      </div>
-      <div className={styles.backgroundBlue}>
         <HomeSlider />
         <HomeTeachers />
-      </div>
-      <div className={styles.backgroundCoral}>
         <HomeProjectInfo />
+        <HomeForm />
       </div>
-      <HomeForm />
       <Footer />
-    </div>
+    </>
   );
 }

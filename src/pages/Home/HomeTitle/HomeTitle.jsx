@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./HomeTitle.module.css";
 import logoOksei from "../../../../public/logoOkei.png";
 import message from "../../../../public/message.png";
-import messageVideo from "../../../../public/messageVideo.mp4";
+import messageVideo from "../../../../public/messageGif.mp4";
 
 export default function HomeTitle() {
   const [text, setText] = useState("");

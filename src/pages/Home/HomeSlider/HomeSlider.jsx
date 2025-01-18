@@ -36,7 +36,6 @@ export default function HomeSlider() {
     ),
     rightSide: (
       <>
-        <h1>Проекты {student.fullName}</h1>
         <img
           src={`http://localhost:4200/uploads/${student.projectPhotoPath}`}
           alt="photoSlider"
@@ -70,14 +69,6 @@ export default function HomeSlider() {
       <h1>Наши студенты получают реальный опыт работы, обучаясь в колледже</h1>
 
       <div className={styles.sliderWrapper}>
-        <div className={styles.arrowWrapper}>
-          <button className={styles.arrow} onClick={handlePrevSlide}>
-            ⮜
-          </button>
-          <button className={styles.arrow} onClick={handleNextSlide}>
-            ⮞
-          </button>
-        </div>
         <div
           className={`${styles.wrapper} ${isAnimating ? styles.animating : ""}`}
         >
@@ -92,6 +83,14 @@ export default function HomeSlider() {
               </div>
             ))}
           </div>
+        </div>
+        <div className={styles.arrowWrapper}>
+          <button className={styles.arrow} onClick={handlePrevSlide}>
+            🠔
+          </button>
+          <button className={styles.arrow} onClick={handleNextSlide}>
+            🠖
+          </button>
         </div>
       </div>
     </div>

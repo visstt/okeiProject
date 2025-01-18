@@ -1,13 +1,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 50px;
 }
 
 .container h1 {
-  font-size: 50px;
+  font-size: 64px;
   font-weight: 700;
-  max-width: 70%;
+  max-width: 100%;
+  text-align: left;
 }
 
 .sliderWrapper {
@@ -19,7 +20,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .wrapper {
@@ -52,31 +53,34 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  background-color: #7a73e7;
+  background-color: #5f58c9;
   padding: 30px;
   border-radius: 30px;
   color: #fff;
+  z-index: 1;
 }
 
 .leftSide img {
   width: 160px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  border-radius: 15px;
 }
 
 .leftSide h2 {
-  font-size: 40px;
-  margin-bottom: 30px;
+  font-size: 36px;
+  margin: 0;
 }
 
 .leftSide h3 {
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: 24px;
+  margin: 0px;
   font-weight: 400;
 }
 
 .leftSide p {
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: 24px;
+  margin: 0;
+  margin-top: 50px;
   font-weight: 400;
 }
 
@@ -84,24 +88,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
   justify-content: center;
   width: 50%;
-  background-color: #eceaea;
+  background-color: #e3e1ff;
   padding: 30px;
+  margin-left: -20px;
+  z-index: 0;
 }
 
 .rightSide img {
   width: 100%;
+  margin-left: 15px;
 }
 
 .rightSide h1 {
-  font-size: 40px;
-  color: #7a73e7;
-  margin-bottom: 30px;
+  font-size: 36px;
+  color: #5f58c9;
 }
 
 .arrow {
-  background-color: #7a73e7;
+  background-color: #5f58c9;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -113,7 +120,7 @@
 }
 
 .arrow:hover {
-  background-color: #6058d6;
+  background-color: #5f58c9;
 }
 
 @media (max-width: 1100px) {
@@ -127,7 +134,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    background-color: #7a73e7;
+    background-color: #5f58c9;
     padding: 30px;
     border-radius: 30px;
     color: #fff;
@@ -177,7 +184,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #7a73e7;
+    background-color: #5f58c9;
     color: #fff;
     border-radius: 0%;
   }
@@ -233,7 +240,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #7a73e7;
+    background-color: #5f58c9;
     color: #fff;
     border-radius: 0%;
   }
@@ -271,7 +278,7 @@
 
   .rightSide h1 {
     font-size: 20px;
-    color: #7a73e7;
+    color: #5f58c9;
     margin: 0;
     margin-bottom: 10px;
   }
