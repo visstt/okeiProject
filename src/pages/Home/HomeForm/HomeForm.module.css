@@ -14,8 +14,7 @@
   background-color: #4d46c1;
 }
 .inner {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -27,6 +26,8 @@
   text-align: right;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  padding: 0;
+  margin: 0;
 }
 .inner h2 {
   font-family: Montserrat;
@@ -60,16 +61,16 @@ input[type="email"],
 textarea,
 select,
 .fileUpload {
-  width: 550px;
-  height: 70px;
+  width: 400px;
+  height: 60px;
   outline: none;
   padding: 15px;
   margin-bottom: 20px;
-  border-radius: 100px;
+  border-radius: 15px;
   border: none;
   box-sizing: border-box;
   background-color: #fff;
-  font-size: 22px;
+  font-size: 18px;
   font-family: "Montserrat";
   font-weight: 500;
 }
@@ -80,11 +81,11 @@ select,
   color: #959595;
   cursor: pointer;
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
 }
 .fileUpload img {
-  margin-right: 30px;
+  margin-right: 10px;
 }
 input[type="file"] {
   display: none;
@@ -102,8 +103,8 @@ input[type="file"] {
 }
 
 .submiBtn {
-  width: 544px;
-  height: 92.31px;
+  width: 450px;
+  height: 70px;
   border-radius: 100px;
   opacity: 0px;
   border: none;
@@ -128,6 +129,12 @@ select {
   color: black;
   border: 2px solid #fff;
   font-size: 20px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px #fff inset !important;
 }
 
 @media (max-width: 500px) {

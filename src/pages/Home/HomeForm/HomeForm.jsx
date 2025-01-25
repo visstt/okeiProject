@@ -9,58 +9,82 @@ export default function HomeForm() {
   const [formData, setFormData] = useState({
     organizationName: "",
     contactPerson: "",
-    phoneNumber: "",
+    phoneNumber: "+7 (",
     email: "",
-    deadline: "",
-    description: "",
     file: null,
-    firstCategory: "",
-    secondCategory: "",
   });
 
-  const handleFirstSelectChange = (event) => {
-    const value = event.target.value;
-    setFirstSelect(value);
+  const [errors, setErrors] = useState({});
 
-    setFormData((prevData) => ({
-      ...prevData,
-      firstCategory: value,
-    }));
+  // Функция форматирования номера телефона
+  const formatPhoneNumber = (value) => {
+    const cleaned = value.replace(/\D/g, ""); // Убираем все нецифровые символы
+    const match = cleaned.match(/^7(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
+    if (!match) return "+7 (";
+    const [, areaCode, firstPart, secondPart, thirdPart] = match;
+    return `+7 (${areaCode}${areaCode ? ")" : ""}${
+      firstPart ? ` ${firstPart}` : ""
+    }${secondPart ? `-${secondPart}` : ""}${thirdPart ? `-${thirdPart}` : ""}`;
+  };
 
-    if (value === "Программирование") {
-      setSecondSelectOptions([
-        "Разработка сайта",
-        "Разработка мобильного приложения",
-        "Разработка VR/AR",
-      ]);
-    } else if (value === "Креатив") {
-      setSecondSelectOptions([
-        "Дизайн сайта",
-        "Разработка логотипа",
-        "Фото/Видео съемка",
-      ]);
+  // Обработка изменения полей
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "phoneNumber") {
+      const formattedValue = formatPhoneNumber(value);
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: formattedValue,
+      }));
+
+      // Проверка формата номера телефона
+      if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(formattedValue)) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          phoneNumber: "Некорректный номер телефона",
+        }));
+      } else {
+        setErrors((prevErrors) => {
+          const { phoneNumber, ...rest } = prevErrors;
+          return rest;
+        });
+      }
     } else {
-      setSecondSelectOptions([]);
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
+  // Обработка загрузки файла
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setFileName(file ? file.name : ""); // Обновляем имя файла
-    setFormData((prevData) => ({
-      ...prevData,
-      file: file,
-    }));
+    const allowedExtensions = [".txt", ".doc", ".docx", ".pdf"];
+    const fileExtension = file
+      ? file.name.slice(file.name.lastIndexOf("."))
+      : "";
+
+    if (!allowedExtensions.includes(fileExtension)) {
+      toast.error(
+        "Можно добавлять только файлы форматов: .txt, .doc, .docx, .pdf"
+      );
+      setFormData((prevData) => ({
+        ...prevData,
+        file: null,
+      }));
+      setFileName("");
+    } else {
+      setFileName(file ? file.name : "");
+      setFormData((prevData) => ({
+        ...prevData,
+        file: file,
+      }));
+    }
   };
 
+  // Обработка отправки формы
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -96,6 +120,7 @@ export default function HomeForm() {
       toast.error("Ошибка при отправке данных.");
     }
   };
+
   return (
     <div className={styles.wrapper}>
       <ToastContainer />
@@ -126,9 +151,14 @@ export default function HomeForm() {
                   type="text"
                   id="phone"
                   name="phoneNumber"
+                  value={formData.phoneNumber}
                   onChange={handleChange}
-                  placeholder="Контактный номер телефона"
+                  placeholder="+7 (XXX) XXX-XX-XX"
+                  maxLength={18}
                 />
+                {errors.phoneNumber && (
+                  <span className={styles.error}>{errors.phoneNumber}</span>
+                )}
               </div>
               <div className={styles.fullWidth}>
                 <input
@@ -167,14 +197,15 @@ export default function HomeForm() {
                 </label>
               </div>
             </div>
-            {/* <div className={styles.fullWidth}>
-
-          </div> */}
           </form>
           <div className={styles.text}>
             <h1>Ваша заявка</h1>
             <h2>— первый шаг к нашей совместной работе!</h2>
-            <button type="submit" className={styles.submiBtn}>
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className={styles.submiBtn}
+            >
               Отправить
             </button>
           </div>
