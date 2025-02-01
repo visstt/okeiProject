@@ -18,7 +18,7 @@ export default function HomeForm() {
 
   // Функция форматирования номера телефона
   const formatPhoneNumber = (value) => {
-    const cleaned = value.replace(/\D/g, ""); // Убираем все нецифровые символы
+    const cleaned = value.replace(/\D/g, "");
     const match = cleaned.match(/^7(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
     if (!match) return "+7 (";
     const [, areaCode, firstPart, secondPart, thirdPart] = match;
@@ -185,12 +185,12 @@ export default function HomeForm() {
                   id="file-upload"
                   name="file-upload"
                   onChange={handleFileChange}
-                  style={{ display: "none" }} // Скрываем стандартный инпут
+                  style={{ display: "none" }}
                 />
                 <label
                   htmlFor="file-upload"
                   className={styles.fileUpload}
-                  style={{ cursor: "pointer" }} // Курсор для кнопки
+                  style={{ cursor: "pointer" }}
                 >
                   <span>{fileName || "Добавить техническое задание"}</span>
                   <img src={download} alt="download" />

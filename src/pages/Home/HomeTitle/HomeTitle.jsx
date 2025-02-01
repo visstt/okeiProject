@@ -3,6 +3,7 @@ import styles from "./HomeTitle.module.css";
 import logoOksei from "../../../../public/logoOkei.png";
 import message from "../../../../public/message.png";
 import messageVideo from "../../../../public/messageGif.mp4";
+import { motion } from "framer-motion";
 
 export default function HomeTitle() {
   const [text, setText] = useState("");
@@ -44,7 +45,16 @@ export default function HomeTitle() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.block1}>
+      <motion.div
+        className={styles.block1}
+        initial={{ x: -2000 }}
+        animate={{ x: 0 }}
+        transition={{
+          duration: 1,
+          type: "tween",
+          opacity: { ease: "easeInOut" },
+        }}
+      >
         <h2>Оренбургский колледж экономики и информатики</h2>
         <h1 className={styles.typed}>
           {text}
@@ -54,14 +64,34 @@ export default function HomeTitle() {
           В ОКЭИ студенты погружаются в мир реальных проектов, приобретая
           бесценный опыт и создавая собственные шедевры
         </h3>
-      </div>
+      </motion.div>
       <div className={styles.vertical}>
-        <div className={styles.block2}>
+        <motion.div
+          className={styles.block2}
+          initial={{ x: 2000 }}
+          animate={{ x: 0 }}
+          transition={{
+            delay: 0.1,
+            duration: 1,
+            type: "spring",
+            opacity: { ease: "easeInOut" },
+          }}
+        >
           <img src={logoOksei} alt="logoOksei" />
-        </div>
-        <div className={styles.block3}>
+        </motion.div>
+        <motion.div
+          className={styles.block3}
+          initial={{ x: 2000 }}
+          animate={{ x: 0 }}
+          transition={{
+            delay: 0.2,
+            duration: 1,
+            type: "spring",
+            opacity: { ease: "easeInOut" },
+          }}
+        >
           <video src={messageVideo} alt="messageVideo" autoPlay loop muted />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
