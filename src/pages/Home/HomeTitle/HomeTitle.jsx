@@ -52,7 +52,7 @@ export default function HomeTitle() {
         transition={{
           duration: 1,
           type: "tween",
-          opacity: { ease: "easeInOut" },
+          ease: "easeInOut",
         }}
       >
         <h2>Оренбургский колледж экономики и информатики</h2>

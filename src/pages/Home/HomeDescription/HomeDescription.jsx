@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./HomeDescription.module.css";
 import girl from "../../../../public/girl.png";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HomeDescription = () => {
   const [logos, setLogos] = useState([]);
@@ -55,17 +56,29 @@ const HomeDescription = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <motion.div
+        className={styles.wrapper}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
         <img src={girl} alt="girl" />
         <h1>
           ОКЭИ - это мир креативных проектов. От дизайна до программирования —
           мы создаем все, что вам нужно
         </h1>
-      </div>
+      </motion.div>
 
       <h2>Наши партнеры</h2>
 
-      <div className={styles.stroka}>
+      <motion.div
+        className={styles.stroka}
+        initial={{ opacity: 0, x: 500 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className={styles.marquee}>
           <div className={styles.marqueeInner}>
             {duplicatedImages.map((image, index) => (
@@ -73,7 +86,7 @@ const HomeDescription = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <button className={styles.button}>
         <h3>Перейти к заявке</h3>

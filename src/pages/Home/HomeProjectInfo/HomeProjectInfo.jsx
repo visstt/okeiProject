@@ -4,7 +4,7 @@ import styles from "./HomeProjectInfo.module.css";
 import bluePhoto from "../../../../public/bluePhoto.png";
 import greenPhoto from "../../../../public/greenPhoto.png";
 import pinkPhoto from "../../../../public/pinkPhoto.png";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function HomeProjectInfo() {
   const [flippedIndex, setFlippedIndex] = useState(null);
@@ -63,7 +63,13 @@ export default function HomeProjectInfo() {
   ];
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+    >
       <h1>Готовы воплотить свои идеи в жизнь?</h1>
       <div className={styles.wrapper}>
         <div className={styles.first}>
@@ -123,6 +129,6 @@ export default function HomeProjectInfo() {
           <p>Наши проекты</p>
         </Link>
       </div> */}
-    </div>
+    </motion.div>
   );
 }

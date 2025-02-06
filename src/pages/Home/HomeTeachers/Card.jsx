@@ -38,7 +38,7 @@ export default function Card() {
             />
           </div>
 
-          <h2>{teacher.fullName.split(" ").slice(0, 2).join(" ")}</h2>
+          <h2>{teacher.fullName}</h2>
           <h3>{teacher.description}</h3>
         </div>
       ))}

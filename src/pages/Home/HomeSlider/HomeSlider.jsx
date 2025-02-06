@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./HomeSlider.module.css";
+import { motion } from "framer-motion";
 
 export default function HomeSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -65,7 +66,13 @@ export default function HomeSlider() {
   };
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5 }}
+    >
       <h1>Наши студенты получают реальный опыт работы, обучаясь в колледже</h1>
 
       <div className={styles.sliderWrapper}>
@@ -93,6 +100,6 @@ export default function HomeSlider() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
